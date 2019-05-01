@@ -15,9 +15,9 @@ export default {
   data() {
     return {
       todos: [
-        {title: 'Todo A', desc: 'I need to do this.', isDone: false},
-        {title: 'Todo B', desc: 'I need to do this after A.', isDone: false},
-        {title: 'Todo C', desc: 'I need to do this later.', isDone: false}
+        {title: 'Todo A', desc: 'I need to do this.', done: true},
+        {title: 'Todo B', desc: 'I need to do this after A.', done: true},
+        {title: 'Todo C', desc: 'I need to do this later.', done: false}
       ],
     };
   },
