@@ -49,15 +49,44 @@
         <!-- card list -->
         <div class="col-md-4">
           <div v-for="todo in todos">
-            <div class="card text-center" style="margin: 10px;">
+            <div
+              class="card text-center"
+              style="margin: 10px;"
+              :class="todo.done ? greenCard : ''"
+            >
               <div class="card-body">
-                <h5 class="card-title" v-bind:style="todo.done ? textLine : ''">{{ todo.title }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{ todo.desc }}</h6>
+                <h5
+                  class="card-title"
+                  v-bind:style="todo.done ? textLine : ''"
+                >
+                  {{ todo.title }}
+                </h5>
+
+                <h6
+                  class="card-subtitle mb-2"
+                  :class="todo.done ? '' : 'text-muted'"
+                >
+                  {{ todo.desc }}
+                </h6>
               </div>
 
               <div class="btn-group btn-block" role="group">
-                <button type="button" class="btn btn-success" v-on:click="doneTodo(todo)">Beres</button>
-                <button type="button" class="btn btn-danger" v-on:click="deleteTodo(todo)">Hapus</button>
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  v-on:click="doneTodo(todo)"
+                  :class="todo.done ? 'disabled' : ''"
+                >
+                  Beres
+                </button>
+
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  v-on:click="deleteTodo(todo)"
+                >
+                  Hapus
+                </button>
               </div>
             </div>
           </div>
@@ -76,6 +105,7 @@
         title: '',
         desc: '',
         textLine: 'text-decoration:line-through',
+        greenCard: 'text-white bg-success',
       }
     },
     methods: {
